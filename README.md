@@ -1,17 +1,29 @@
-# Capability Gap Controller
+<p align="center"><strong>METACOGNISUM</strong></p>
 
-**What is the agent missing—and which intervention is worth trying next?**
+<h1 align="center">Capability Gap Controller</h1>
+
+<p align="center"><strong>Identify the gap. Choose the next step. Verify the gain.</strong></p>
+
+<p align="center">
+  Python 3.10+ &nbsp;·&nbsp;
+  <a href="LICENSE">Apache-2.0</a> &nbsp;·&nbsp;
+  <a href="CHANGELOG.md">v0.1.0a1</a>
+</p>
+
+<p align="center">
+  <a href="#quick-start">Quick start</a> ·
+  <a href="docs/architecture.md">Architecture</a> ·
+  <a href="docs/integration.md">Integration</a> ·
+  <a href="docs/evaluation.md">Evaluation</a>
+</p>
+
+---
 
 The Capability Gap Controller assesses a task, uses the
 [Foresight Agent](https://github.com/metacognisum/The-Foresight-Agent) to check
 predicted consequences, and chooses among registered ways to improve the chance
 of verified completion. Execution feeds a persistent capability map. Repeated,
 unresolved failures can lead to a separately evaluated adaptation.
-
-**Research preview · 0.1.0a1 · Python 3.10+ · Apache-2.0**
-
-[Quick start](#quick-start) · [Architecture](docs/architecture.md) ·
-[Integration](docs/integration.md) · [Evaluation](docs/evaluation.md)
 
 ## The idea
 
