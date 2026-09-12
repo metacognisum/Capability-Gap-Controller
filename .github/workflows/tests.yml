@@ -1,0 +1,31 @@
+name: Tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        python: ['3.10', '3.12', '3.14']
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: controller
+      - uses: actions/checkout@v7
+        with:
+          repository: metacognisum/The-Foresight-Agent
+          ref: f65a47163a2618f12f6cecbe586db40e9a49347f
+          path: foresight
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install ./foresight ./controller
+      - run: python -m unittest discover -v
+        working-directory: controller
+      - name: Installed CLI smoke test outside source tree
+        working-directory: ${{ runner.temp }}
+        run: |
+          capability-gap demo --output smoke-run
+          capability-gap inspect smoke-run/capabilities.sqlite3
